@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :models
+  devise_for :users
   root 'welcome#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
