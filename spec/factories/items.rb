@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :item do
-    name "MyString"
+    name Faker::Lorem.sentence
     user nil
   end
 end
