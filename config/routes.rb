@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   resources :users, only: :show # creates user_root_path
 
+  resources :users do
+    resources :items, only: :create
+  end
 
 
   root 'welcome#index'

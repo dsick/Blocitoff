@@ -21,6 +21,7 @@ source 'https://rubygems.org'
  gem 'figaro'
  gem 'pry'
  gem 'devise'
+ gem 'awesome_print'
 
 
  group :development, :test do
