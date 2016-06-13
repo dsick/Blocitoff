@@ -4,7 +4,7 @@
 	<% @items.each do |item| %>
 		<div class="row">
 			<div class="col-md-6">
-				<div id="#item-<%= item.id %>"><%= link_to "", [@user, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %> <%= item.name %> </div>
+				<div id="#item-<%= item.id %>"><%= link_to "", [@user, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %> <%= item.name %> - <%= distance_of_time_in_words(Time.now, item.created_at) %></div>
 			</div>
 		</div>
 	<% end %>
