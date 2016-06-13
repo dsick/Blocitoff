@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
 
 
+  devise_for :users, controllers: { registrations: "users/registrations" }
+ 
 
- root 'welcome#index'
+  resources :users, only: :show # creates user_root_path
+
+  resources :users do
+    resources :items, only: [ :create, :destroy ]
+  end
+
+
+  root 'welcome#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
