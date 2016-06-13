@@ -20,6 +20,9 @@ source 'https://rubygems.org'
  gem 'bootstrap-sass'
  gem 'figaro'
  gem 'pry'
+ gem 'devise'
+ gem 'awesome_print'
+
 
  group :development, :test do
    gem 'byebug'
