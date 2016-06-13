@@ -1,13 +1,9 @@
-<% if @user.user_items.nil? %>
-	<p>No items yet. Please add one below.</p>
-<% else %>
-	<%= form_for(@user, @item) do |f| %>
-	  <p>
-	    <b>Item name</b><br>
-	    <%= f.text_field :name %>
-	  </p>
-	  <p>
-	    <%= f.submit %>
-	  </p>
-	<% end %>
+<%= form_for [@user, @item] do |f| %>
+  <p>
+    <b>Item name</b><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
 <% end %>

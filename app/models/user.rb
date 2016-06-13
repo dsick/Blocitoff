@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true, if: -> { self.username.present? }
 
   def user_items
-    items.find_by(user_id: self.id)
+    items.where(user_id: self.id)
   end
 end
