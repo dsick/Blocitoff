@@ -28,6 +28,7 @@ premium = User.create!(
   Item.create!(
     name: Faker::Lorem.sentence,
     user_id: 1,
+    created_at: Time.now-8.days
   )
 end
 
