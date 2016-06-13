@@ -24,7 +24,11 @@ class ItemsController < ApplicationController
     else
       flash[:alert] = "Was not able to delete item. Please try again."
     end
-    redirect_to user_path(@user)
+
+    respond_to do |format|
+       format.html
+       format.js
+    end
   end
 
 end

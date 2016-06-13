@@ -4,7 +4,7 @@
 	<% @items.each do |item| %>
 		<div class="row">
 			<div class="col-md-6">
-				<p><%= link_to "", [@user, item], method: :delete, class: 'glyphicon glyphicon-ok' %><%= item.name %> </p>
+				<div id="#item-<%= item.id %>"><%= link_to "", [@user, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %> <%= item.name %> </div>
 			</div>
 		</div>
 	<% end %>
