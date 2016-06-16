@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Bloccit</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<div class="container">
-   	<ul class="nav nav-tabs">
-      <li><%= link_to "Blocitoff", root_path %></li>
-      <div class="pull-right user-info">
-           <div class="pull-right">
-             Sign In | Sign Up
-           </div>
+  <head>
+    <title>Bloccit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Blocitoff</a>
       </div>
- 		</ul>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Todos", root_path %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+              <li><%= link_to 'Profile', edit_user_registration_path, :class => 'navbar-link navbar-right' %></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link navbar-right'  %></li>
+              
+              <% else %>
+              <li><%= link_to "Sign In", new_user_session_path, :class => 'navbar-link navbar-right'  %></li>
+              <li><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link navbar-right'  %></li>
+              <% end %>
+          </ul>
+          <% if user_signed_in? %>
+            <p class="navbar-text navbar-right">Signed in as: <strong><%= current_user.email %></strong></p>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+    
     <div class="flash">
       <% if flash[:notice] %>
       <div class="alert alert-success">
@@ -35,9 +59,9 @@
       </div>
       <% end %>
     </div>
+    <div class="container">
+      <%= yield %>
+    </div>
 
-	 <%= yield %>
-   
-  </div>
 </body>
 </html>

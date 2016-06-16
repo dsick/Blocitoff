@@ -1,0 +1,9 @@
+<%= form_for [@user, @item] do |f| %>
+  <p>
+    <b>Item name</b><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

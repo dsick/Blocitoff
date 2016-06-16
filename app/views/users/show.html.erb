@@ -1,0 +1,8 @@
+<h2><%= @user.username %> Profile</h2>
+<p>Email: <%= @user.email %> </p>
+<p>Username: <%= @user.username %> </p>
+<p><%= link_to "Edit Profile",  edit_user_registration_path, class: "btn btn-primary" %></p>
+<h2>Items</h2>
+<%= render partial: 'items/item' %>
+<h3>Add an Item</h3>
+<%= render partial: 'items/form' %>
